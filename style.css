@@ -10,3 +10,22 @@ body {
     margin-top:15px;
 }
 
+.cell.start {
+    background-color: lightgreen;
+}
+
+.cell.target {
+    background-color: red;
+}
+
+.cell.obstacle {
+    background-color: darkgray;
+}
+
+.cell.visited {
+    background-color: lightblue;
+}
+
+.cell.path {
+    background-color: yellow;
+}
