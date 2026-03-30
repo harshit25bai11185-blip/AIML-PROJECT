@@ -8,20 +8,23 @@
 </head>
 <body>
     <h2>Warehouse Pathfinder (BFS)</h2>
-    <button id="start-btn">Find Path</button>
-    <button id="reset-btn">Reset Grid</button>
-    
-    <select id="layout-select">
-        <option value="empty">Empty Floor</option>
-        <option value="aisles">Warehouse Aisles</option>
-        <option value="maze">Complex Maze</option>
-    </select>
-    
-    <div id="grid-container"></div>
-    <button id="start-btn">Find paths</button>
-    <button id="reset-btn">Reset Grid</button>
+    <div class="Maine">
+        <button id="start-btn">Find Path</button>
+        <button id="reset-btn">Reset Grid</button>
+        
+        <select id="layout-select">
+            <option value="empty">Empty Floor</option>
+            <option value="aisles">Warehouse Aisles</option>
+            <option value="maze">Complex Maze</option>
+        </select>
+        
+        <div id="grid-container"></div>
 
-    <div id="grid-container"></div>
+        <div id="grid-container"></div>
+
+        <p>Green cell - start</p>
+        <p>Red cell - end</p>
+    </div>
     
     <script src="script.js"></script>
 </body>

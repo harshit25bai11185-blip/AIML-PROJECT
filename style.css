@@ -16,6 +16,7 @@ body {
     background-color: #e0e0e0;
     border: 1px solid black;
     cursor: pointer;
+    border: 2px dotted black
 }
 
 .cell.start {
@@ -36,4 +37,8 @@ body {
 
 .cell.path {
     background-color: yellow;
+}
+
+.Main {
+    
 }
