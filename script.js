@@ -126,3 +126,54 @@ function drawPath(parentMap) {
 
 // Hook up the button to the function
 startBtn.addEventListener('click', findPath);
+
+// Grab the new HTML elements
+const resetBtn = document.getElementById('reset-btn');
+const layoutSelect = document.getElementById('layout-select');
+
+// Define our warehouse layouts (pairs of [row, col] representing shelves)
+const layouts = {
+    empty: [], // No obstacles
+    aisles: [
+        // Three vertical aisles
+        [1,2],[2,3],[3,2],[4,2],[6,2],[7,2],[8,2],
+        [1,5],[2,5],[3,5],[4,5],[6,5],[7,5],[8,5],
+        [1,8],[2,7],[3,7],[4,7],[6,7],[7,7],[8,8],[9,8]
+    ],
+    maze: [
+        // A tricky path to navigate
+        [1,1],[1,2],[1,3],[1,5],[1,6],[1,7],[1,8],
+        [3,1],[3,3],[3,4],[3,5],[3,8],
+        [5,1],[5,2],[5,3],[5,5],[5,6],[5,7],
+        [7,3],[7,4],[7,5],[7,6],[7,8],
+        [8,1],[8,2],[8,8]
+    ]
+};
+
+// Function to wipe the board clean
+function resetGrid() {
+    for (let r = 0; r < rows; r++) {
+        for (let c = 0; c < cols; c++) {
+            let cell = document.getElementById(`cell-${r}-${c}`);
+            // Remove everything except start and target
+            cell.classList.remove('obstacle', 'visited', 'path');
+        }
+    }
+}
+
+// Function to load a specific design
+function loadLayout() {
+    resetGrid(); // Clear the board first
+    
+    const selectedDesign = layoutSelect.value;
+    const obstaclesToDraw = layouts[selectedDesign];
+
+    // Draw the new shelves
+    for (let [r, c] of obstaclesToDraw) {
+        document.getElementById(`cell-${r}-${c}`).classList.add('obstacle');
+    }
+}
+
+// Hook up the buttons and dropdown
+resetBtn.addEventListener('click', resetGrid);
+layoutSelect.addEventListener('change', loadLayout);
